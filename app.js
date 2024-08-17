@@ -1,99 +1,144 @@
 (function(){
+    /**
+     * HTML DOM
+     */
+
+    // Container
     const container = document.querySelector(".container");
 
+    // Item
     const item = document.createElement("div");
     item.setAttribute("class", "item");
     
+    // Item's display
+    const display = document.createElement("div");
+    display.setAttribute("class", "display");
+
+    // Display's text
+    const text = document.createElement("p");
+    text.textContent = "";
+
+    // Item's keys
     const keys = document.createElement("div");
     keys.setAttribute("class", "keys");
 
-    const display = document.createElement("div");
-    display.setAttribute("class", "display");
-    
-    const text = document.createElement("p");
-    text.textContent = "";
-    
+    // Key 1
     const key1 = document.createElement("button");
-    const key2 = document.createElement("button");
-    const key3 = document.createElement("button");
-    const key4 = document.createElement("button");
-    const key5 = document.createElement("button");
-    const key6 = document.createElement("button");
-    const key7 = document.createElement("button");
-    const key8 = document.createElement("button");
-    const key9 = document.createElement("button");
-    const key0 = document.createElement("button");
-
-    const keyAdd = document.createElement("button");
-    const keySubtract = document.createElement("button");
-    const keyMultiply = document.createElement("button");
-    const keyDivide =  document.createElement("button");
-    const keyTotal =  document.createElement("button");
-    const keyClear =  document.createElement("button");
-    const keyDot =  document.createElement("button");
-    const keyBack =  document.createElement("button");
-
     key1.setAttribute("id", "key1");
-    key2.setAttribute("id", "key2");
-    key3.setAttribute("id", "key3");
-    key4.setAttribute("id", "key4");
-    key5.setAttribute("id", "key5");
-    key6.setAttribute("id", "key6");
-    key7.setAttribute("id", "key7");
-    key8.setAttribute("id", "key8");
-    key9.setAttribute("id", "key9");
-    key0.setAttribute("id", "key0");
-
-    keyAdd.setAttribute("id", "keyAdd");
-    keySubtract.setAttribute("id", "keySubtract");
-    keyMultiply.setAttribute("id", "keyMultiply");
-    keyDivide.setAttribute("id", "keyDivide");
-    keyTotal.setAttribute("id", "keyTotal");
-    keyClear.setAttribute("id", "keyClear");
-    keyDot.setAttribute("id", "keyDot");
-    keyBack.setAttribute("id", "keyBack");
-    
-    key0.textContent = 0;
     key1.textContent = 1;
+
+    // Key 2
+    const key2 = document.createElement("button");
+    key2.setAttribute("id", "key2");
     key2.textContent = 2;
+
+    // Key 3
+    const key3 = document.createElement("button");
+    key3.setAttribute("id", "key3");
     key3.textContent = 3;
+
+    // Key 4
+    const key4 = document.createElement("button");
+    key4.setAttribute("id", "key4");
     key4.textContent = 4;
+
+    // Key 5
+    const key5 = document.createElement("button");
+    key5.setAttribute("id", "key5");
     key5.textContent = 5;
+
+    // Key 6
+    const key6 = document.createElement("button");
+    key6.setAttribute("id", "key6");
     key6.textContent = 6;
+
+    // Key 7
+    const key7 = document.createElement("button");
+    key7.setAttribute("id", "key7");
     key7.textContent = 7;
+
+    // Key 8
+    const key8 = document.createElement("button");
+    key8.setAttribute("id", "key8");
     key8.textContent = 8;
+
+    // Key 9
+    const key9 = document.createElement("button");
+    key9.setAttribute("id", "key9");
     key9.textContent = 9;
 
-    keyAdd.textContent = "+";
-    keySubtract.textContent = "-";
-    keyMultiply.textContent = "×";
-    keyDivide.textContent = "/";
-    keyTotal.textContent = "=";
-    keyClear.textContent = "AC";
-    keyDot.textContent = ".";
-    keyBack.textContent = "DEL";
+    // Key 0
+    const key0 = document.createElement("button");
+    key0.setAttribute("id", "key0");
+    key0.textContent = 0;
 
+    // Key add
+    const keyAdd = document.createElement("button");
+    keyAdd.setAttribute("id", "keyAdd");
+    keyAdd.textContent = "+";
     keyAdd.classList.add("separator");
+
+    // Key subtract
+    const keySubtract = document.createElement("button");
+    keySubtract.setAttribute("id", "keySubtract");
+    keySubtract.textContent = "-";
     keySubtract.classList.add("separator");
+
+    // Key multiply
+    const keyMultiply = document.createElement("button");
+    keyMultiply.setAttribute("id", "keyMultiply");
+    keyMultiply.textContent = "×";
     keyMultiply.classList.add("separator");
+
+    // Key divide
+    const keyDivide =  document.createElement("button");
+    keyDivide.setAttribute("id", "keyDivide");
+    keyDivide.textContent = "/";
     keyDivide.classList.add("separator");
+
+    // Key total
+    const keyTotal =  document.createElement("button");
+    keyTotal.setAttribute("id", "keyTotal");
+    keyTotal.textContent = "=";
     keyTotal.classList.add("total");
-    keyDot.classList.add("total");
+
+    // Key period
+    const keyPeriod =  document.createElement("button");
+    keyPeriod.setAttribute("id", "keyPeriod");
+    keyPeriod.textContent = ".";
+    keyPeriod.classList.add("total");
+
+    // Key all clear
+    const keyClear =  document.createElement("button");
+    keyClear.setAttribute("id", "keyClear");
+    keyClear.textContent = "AC";
     keyClear.classList.add("remove");
+
+    // Key backspace
+    const keyBack =  document.createElement("button");
+    keyBack.setAttribute("id", "keyBack");
+    keyBack.textContent = "DEL";
     keyBack.classList.add("remove");
 
-    keys.append(key1, key2, key3, key4, key5, key6, key7, key8, key9, key0,
-        keyAdd, keySubtract, keyDivide, keyMultiply, keyDot, keyTotal, keyClear, keyBack);
-    item.appendChild(display);
-    item.appendChild(keys);
-    display.appendChild(text);
+    // Order of the HTML DOM
     container.appendChild(item);
+    item.appendChild(display);
+    display.appendChild(text);
+    item.appendChild(keys);
+    keys.append(key1, key2, key3, key4, key5, key6, key7, key8, key9, key0,
+        keyAdd, keySubtract, keyClear, keyMultiply, keyDivide, keyBack, keyPeriod, keyTotal);
+    
+    /**
+     * CALCULATOR LOGIC
+     */
 
+    // Global variables
     let operand1 = "";
     let operator = "";
     let operand2 = "";
     let total = 0;
 
+    // Methods
     function Calculator () {
         this.add = function (a, b) {
             return +(a + b).toFixed(2);
@@ -111,20 +156,19 @@
     }
 
     function operate (a, op, b) {
-        aNum = Number(a);
-        bNum = Number(b);
         const calculator = new Calculator();
         if (op === "+") {
-            return calculator.add(aNum, bNum);
+            return calculator.add(+a, +b);
         } else if (op === "-") {
-            return calculator.subtract(aNum, bNum);
+            return calculator.subtract(+a, +b);
         } else if (op === "*") {
-            return calculator.multiply(aNum, bNum);
+            return calculator.multiply(+a, +b);
         } else if (op === "/") {
-            return calculator.divide(aNum, bNum);
+            return calculator.divide(+a, +b);
         }
     }
 
+    // Helpers
     function storeToOperands (value) {
         if(!operator) {
             return operand1 += value;
@@ -151,6 +195,14 @@
         operator = "";
         operand2 = "";
         total = 0;
+    }
+
+    function calculate () {
+        if (operator && operand2) {
+            total = operate(operand1, operator, operand2);
+            operand1 = total;
+            clearTheRest();
+        }
     }
 
     function changeBgColor (key) {
@@ -189,14 +241,7 @@
         }
     }
 
-    function calculate () {
-        if (operator && operand2) {
-            total = operate(operand1, operator, operand2);
-            operand1 = total;
-            clearTheRest();
-        }
-    }
-
+    // Listeners
     keys.addEventListener("click", (event) => {
 
         let target = event.target;
@@ -259,8 +304,12 @@
             case "keyTotal":
                 total = operate(operand1, operator, operand2);
                 text.textContent = total;
-                operand1 = total;
-                clearTheRest();
+
+                if (operand1 && operator && operand2) {
+                    operand1 = total;
+                    (total) ? clearAllValues() : clearTheRest();
+                }
+                
                 changeBgColor("keyTotal");
                 break;
             case "keyClear":
@@ -272,13 +321,14 @@
                 text.textContent = removeFromOperands();
                 changeBgColor("keyBack");
             break;
-            case "keyDot":
+            case "keyPeriod":
                 text.textContent = storeToOperands(".");
                 changeBgColor("keyBack");
             break;
         };
     });
 
+    // Keyboard support
     document.addEventListener("keydown", (event) => {
 
         let target = event.key;
@@ -346,8 +396,12 @@
             case "Enter":
                 total = operate(operand1, operator, operand2);
                 text.textContent = total;
-                operand1 = total;
-                clearTheRest();
+
+                if (operand1 && operator && operand2) {
+                    operand1 = total;
+                    (total) ? clearAllValues() : clearTheRest();
+                }
+
                 changeBgColor("keyTotal");
                 break;
             case "Backspace":

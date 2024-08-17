@@ -1,10 +1,3 @@
-To Do
-
-- [ ] Fix undefined issue after a NaN result
-- [ ] Clear NaN and undefined result when providing inputs
-
----
-
 # Calculator
 
 The Odin Project calculator.   
